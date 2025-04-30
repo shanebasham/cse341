@@ -5,4 +5,10 @@ const myController = require('../controllers')
 routes.get('/', myController.function1);
 routes.get('/2', myController.function2);
 
+// mongodb
+const mongodb = require('./mongodb');
+mongodb.getDb()
+    .db()
+    .collection('your_collection_name');
+
 module.exports = routes
