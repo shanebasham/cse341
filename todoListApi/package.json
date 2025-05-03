@@ -1,0 +1,32 @@
+{
+  "name": "todolistapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/generalgmt/RESTfulAPITutorial.git#readme"
+  },
+  "keywords": [
+    "\"RESTful\"",
+    "\"API\"",
+    "\"Tutorial\""
+  ],
+  "author": "Shane Basham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/generalgmt/RESTfulAPITutorial/issues"
+  },
+  "homepage": "https://github.com/generalgmt/RESTfulAPITutorial/tree/readme#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1"
+  }
+}
