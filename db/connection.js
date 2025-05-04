@@ -1,11 +1,7 @@
 const {MongoClient, ServerApiVersion} = require('mongodb');
 
 async function main(){
-  /**
-   * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-   * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-   */
-  const uri = "mongodb+srv://shanebasham:Supermongo28!@cluster0.5cwbugw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  const uri = "mongodb+srv://shanebasham:Supermongo28@cluster0.5cwbugw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
   const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,

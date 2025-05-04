@@ -1,0 +1,4 @@
+GET http://localhost:8080 HTTP/1.1
+
+###
+GET https://cse341-tn18.onrender.com HTTP/1.1
