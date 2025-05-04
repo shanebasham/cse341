@@ -9,6 +9,6 @@ routes.get('/2', myController.function2);
 const mongodb = require('./mongodb');
 mongodb.getDb()
     .db()
-    .collection('your_collection_name');
+    .collection('test');
 
 module.exports = routes
