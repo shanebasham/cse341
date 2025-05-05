@@ -14,6 +14,7 @@ app
     next();
   })
   .use('/', require('./routes'));
+  console.log('Trying to connect to DB...')
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
