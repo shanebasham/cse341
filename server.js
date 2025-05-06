@@ -13,7 +13,7 @@ app.listen(port, () => {
 
 // mongoose?
 const mongoose = require('mongoose');
-const dbUri = process.env.MONGO_URI;
+const dbUri = process.env.MONGODB_URI;
 if (!dbUri) {
   console.error('MongoDB URI is not defined in .env');
   process.exit(1);
