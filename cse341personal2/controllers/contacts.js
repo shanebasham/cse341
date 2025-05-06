@@ -2,8 +2,9 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().db().collection('contacts').find();
+  const result = await mongodb.getDb().collection('contacts').find();
   const db = mongodb.getDb(); 
+  // const db = await mongodb.initDb(); // Ensure DB is connected
   console.log("Using DB: cse341"); 
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
@@ -13,10 +14,10 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingle = async (req, res, next) => {
+  // const db = await mongodb.initDb(); // Ensure DB is connected
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
-    .db()
     .collection('contacts')
     .find({ _id: userId });
     console.log("Using DB: cse341"); 

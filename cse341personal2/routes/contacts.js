@@ -1,3 +1,5 @@
+console.log('Contacts route loaded');  // Added for debugging
+
 const express = require('express');
 const router = express.Router();
 
