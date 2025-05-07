@@ -25,7 +25,7 @@ db.initDb() // initialize DB before starting server
 
 
 // mongoose?
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const dbUri = process.env.MONGODB_URI;
 if (!dbUri) {
   console.error('MongoDB URI is not defined in .env');
