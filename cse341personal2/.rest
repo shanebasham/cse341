@@ -1,16 +1,47 @@
-GET http://localhost:8080 HTTP/1.1
-
-###
 GET http://localhost:8080/contacts HTTP/1.1
 
 ###
 GET http://localhost:8080/contacts/68185b272874abaa8ba83221 HTTP/1.1
 
 ###
-GET https://cse341-tn18.onrender.com HTTP/1.1
+POST http://localhost:8080/contacts
+Content-Type: application/json
+{
+  "firstName": "Zander",
+  "lastName": "Basham",
+  "email": "zbasham@gmail.com",
+  "favoriteColor": "Yellow",
+  "birthday": "4/13/2007"
+}
 
+### 
+PUT contact PUT http://localhost:8080/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+{
+"firstName":"Zander", "lastName":"Basham", "email":"zbasham@gmail.com", "favoriteColor":"Yellow", "birthday":"4/13/2007"
+} 
+
+### 
+DELETE contact DELETE http://localhost:8080/contacts/6220b775099269ff7b31ceab HTTP/1.1
+
+
+//                             PRODUCTION DEPLOY
 ###
 GET https://cse341-tn18.onrender.com/contacts HTTP/1.1
 
 ###
 GET https://cse341-tn18.onrender.com/contacts/68185b272874abaa8ba83221 HTTP/1.1
+
+### 
+Create contact POST https://cse341-instructor.herokuapp.com/contacts HTTP/1.1 content-type: application/json
+{
+"firstName":"Zander", "lastName":"Basham", "email":"zbasham@gmail.com", "favoriteColor":"Yellow", "birthday":"4/13/2007"
+}
+
+### 
+PUT contact PUT https://cse341-instructor.herokuapp.com/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+{
+"firstName":"Zander", "lastName":"Basham", "email":"zbasham@gmail.com", "favoriteColor":"Yellow", "birthday":"4/13/2007"
+}
+
+### 
+DELETE contact DELETE https://cse341-instructor.herokuapp.com/contacts/6220e34083149913680f9a64 HTTP/1.1

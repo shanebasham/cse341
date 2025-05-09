@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+app.use(express.json());
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');

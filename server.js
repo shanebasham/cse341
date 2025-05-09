@@ -3,6 +3,8 @@ require('dotenv').config(); // Make sure dotenv is loaded
 var express = require('express');
 var app = express();
 
+app.use(express.json());
+
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose'); // optional if using mongoose
 const db = require('./cse341personal2/db/connect'); // path to connect.js
@@ -25,7 +27,7 @@ db.initDb() // initialize DB before starting server
 
 
 // mongoose?
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const dbUri = process.env.MONGODB_URI;
 if (!dbUri) {
   console.error('MongoDB URI is not defined in .env');
