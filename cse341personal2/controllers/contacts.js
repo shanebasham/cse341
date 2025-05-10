@@ -30,19 +30,36 @@ const getSingle = async (req, res, next) => {
 };
 
 const createContact = async (req, res) => {
-  console.log(`Creating contact...`);
-  const contact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
-  };
-  const response = await mongodb.getDb().collection('contacts').insertOne(contact);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+  console.log('Creating contact...');
+  try {
+    const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+
+    const db = mongodb.getDb();
+    const response = await db.collection('contacts').insertOne(contact);
+
+    console.log('Insert response:', response);
+
+    if (response && response.insertedId) {
+      return res.status(201).json({
+        message: 'Contact created successfully',
+        contactId: response.insertedId.toString()
+      });
+    }
+
+    console.error('Insert failed or incomplete response:', response);
+    return res.status(500).json({ message: 'Insert failed: No insertedId returned.' });
+  } catch (error) {
+    console.error('Error inserting contact:', error.stack || error);
+    return res.status(500).json({
+      message: 'Server error during contact creation.',
+      error: error.message
+    });
   }
 };
 
