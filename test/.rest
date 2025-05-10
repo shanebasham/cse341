@@ -1,13 +1,19 @@
 GET http://localhost:3000/contacts HTTP/1.1
 
 ###
-GET http://localhost:3000/contacts/681f97a54a6e31839c72faf8 HTTP/1.1
+GET http://localhost:3000/contacts/68185b272874abaa8ba83221 HTTP/1.1
 
 ###
 POST http://localhost:3000/contacts
 Content-Type: application/json
 
-{"_id":"68185b272874abaa8ba83221","firstName":"Shane","lastName":"Basham","email":"shanebasham28@gmail.com","favoriteColor":"Turquoise","birthday":"12/28/2001"}
+{
+  "firstName": "Zander",
+  "lastName": "Basham",
+  "email": "zbasham@gmail.com",
+  "favoriteColor": "Yellow",
+  "birthday": "4/13/2007"
+}
 
 ### 
 PUT http://localhost:3000/contacts/681da089505411f1ac908177 
@@ -22,7 +28,7 @@ Content-Type: application/json
 }
 
 ### 
-DELETE http://localhost:3000/contacts/681f97a54a6e31839c72faf8 HTTP/1.1
+DELETE http://localhost:3000/contacts/68185b272874abaa8ba83221 HTTP/1.1
 
 
 //                             PRODUCTION DEPLOY
