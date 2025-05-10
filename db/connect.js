@@ -1,19 +1,4 @@
-// const mongoose = require('mongoose');
 
-// const URI = "mongodb+srv://shanebasham:Supermongo28@cluster0.5cwbugw.mongodb.net/"
-
-// const connectDB = async () => {
-//   try {
-//     await mongoose.connect(URI);
-//     console.log('Connected to MongoDB');
-//   } catch (error) {
-//     console.error('Error connecting to MongoDB:', error);
-//   }
-// };
-
-// module.exports = connectDB;
-
-const dotenv = require('dotenv');
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -47,3 +32,18 @@ module.exports = {
   initDb,
   getDb,
 };
+
+// const mongoose = require('mongoose');
+
+// const URI = "mongodb+srv://shanebasham:Supermongo28@cluster0.5cwbugw.mongodb.net/"
+
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect(URI);
+//     console.log('Connected to MongoDB');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//   }
+// };
+
+// module.exports = connectDB;
