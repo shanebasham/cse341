@@ -1,14 +1,8 @@
-const express = require('express'); // Import Express
-const router = express.Router(); // Import Router
-const myController = require('../controllers');
+const express = require('express');
+const router = express.Router();
 
-router.get('/', myController.function1);
-router.get('/2', myController.function2);
-router.get('/contacts', (req, res) => {
-    res.send('Contacts route is working');
-});
+router.use('/contacts', require('./contacts'))
 
-// Export the router
 module.exports = router;
 
 // const { MongoClient } = require('mongodb');

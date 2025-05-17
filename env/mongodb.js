@@ -3,7 +3,7 @@ const mongoClient = require('mongodb').MongoClient;
 const mongoDBIP = '192.168.1.71';
 const mongoDBPort = 27017;
 
-const mongoURL = 'mongodb+srv://shanebasham:Supermongo28@'+`${mongoDBIP}`+':'+`${mongoDBPort}`;
+// const mongoURL = 'mongodb+srv://shanebasham:Supermongo28@'+`${mongoDBIP}`+':'+`${mongoDBPort}`;
 
 let _db;
 

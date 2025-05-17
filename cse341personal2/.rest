@@ -1,10 +1,10 @@
-GET http://localhost:8080/contacts HTTP/1.1
+GET http://localhost:3000/contacts HTTP/1.1
 
 ###
-GET http://localhost:8080/contacts/68185b272874abaa8ba83221 HTTP/1.1
+GET http://localhost:3000/contacts/68185b272874abaa8ba83221 HTTP/1.1
 
 ###
-POST http://localhost:8080/contacts
+POST http://localhost:3000/contacts
 Content-Type: application/json
 {
   "firstName": "Zander",
@@ -15,13 +15,13 @@ Content-Type: application/json
 }
 
 ### 
-PUT contact PUT http://localhost:8080/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+PUT contact PUT http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
 {
 "firstName":"Zander", "lastName":"Basham", "email":"zbasham@gmail.com", "favoriteColor":"Yellow", "birthday":"4/13/2007"
 } 
 
 ### 
-DELETE contact DELETE http://localhost:8080/contacts/6220b775099269ff7b31ceab HTTP/1.1
+DELETE contact DELETE http://localhost:3000/contacts/6220b775099269ff7b31ceab HTTP/1.1
 
 
 //                             PRODUCTION DEPLOY

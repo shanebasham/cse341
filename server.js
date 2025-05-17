@@ -1,13 +1,37 @@
 require('dotenv').config(); // Make sure dotenv is loaded
 
-var express = require('express');
-var app = express();
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-app.use(express.json());
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+app
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+  .use(cors())
+  .use(express.json())
+  .use(express.urlencoded({ extended: true }))
+  .use('/', require('./routes'));
+
+//app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose'); // optional if using mongoose
 const db = require('./cse341personal2/db/connect'); // path to connect.js
+
+// netlify access
+//app.use(bodyParser.json());
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+//   );
+//   res.setHeader('Content-Type', 'application/json');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//   next();
+//   });
 
 app.use('/contacts', require('./cse341personal2/routes/contacts'));
 db.initDb() // initialize DB before starting server
