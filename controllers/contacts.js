@@ -2,31 +2,39 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().collection('contacts').find();
-  const db = mongodb.getDb(); 
-  // const db = await mongodb.initDb(); // Ensure DB is connected
-  console.log("Using DB: cse341"); 
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
-    console.log("All contacts from DB sent successfully.");
-  });
+    try {
+        const result = await mongodb.getDb().collection('contacts').find();
+        console.log("Using DB: cse341"); 
+        result.toArray().then((lists) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(lists);
+            console.log("All contacts from DB sent successfully.");
+        });
+    } catch (err) {
+        console.error('Error updating contact:', err);
+        res.status(500).json({ error: 'Some error occurred while getting contacts.' });
+    }
 };
 
 const getSingle = async (req, res, next) => {
-  // const db = await mongodb.initDb(); // Ensure DB is connected
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb
-    .getDb()
-    .collection('contacts')
-    .find({ _id: userId });
-    console.log("Using DB: cse341"); 
-    console.log("User found: " + userId); 
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-    console.log(`Single contact from DB sent successfully.`);
-  });
+    try {
+        // const db = await mongodb.initDb(); // Ensure DB is connected
+        const userId = new ObjectId(req.params.id);
+        const result = await mongodb
+            .getDb()
+            .collection('contacts')
+            .find({ _id: userId });
+            console.log("Using DB: cse341"); 
+            console.log("User found: " + userId); 
+        result.toArray().then((lists) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(lists[0]);
+            console.log(`Single contact from DB sent successfully.`);
+        });
+    } catch (err) {
+        console.error('Error updating contact:', err);
+        res.status(500).json({ error: 'Some error occurred while getting contact.' });
+    }
 };
 
 const createContact = async (req, res) => {
@@ -54,10 +62,11 @@ const createContact = async (req, res) => {
 
     console.error('Insert failed or incomplete response:', response);
     return res.status(500).json({ message: 'Insert failed: No insertedId returned.' });
+
   } catch (error) {
     console.error('Error inserting contact:', error.stack || error);
     return res.status(500).json({
-      message: 'Server error during contact creation.',
+      message: 'Some error occured during contact creation.',
       error: error.message
     });
   }
