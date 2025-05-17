@@ -18,7 +18,7 @@ app
 
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose'); // optional if using mongoose
-const db = require('./cse341personal2/db/connect'); // path to connect.js
+const db = require('./db/connect'); // path to connect.js
 
 // netlify access
 //app.use(bodyParser.json());
@@ -33,7 +33,7 @@ const db = require('./cse341personal2/db/connect'); // path to connect.js
 //   next();
 //   });
 
-app.use('/contacts', require('./cse341personal2/routes/contacts'));
+app.use('/contacts', require('./routes/contacts'));
 db.initDb() // initialize DB before starting server
   .then(() => {
     app.listen(port, () => {
