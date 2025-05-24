@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/artworks/": {
+    "/": {
       "get": {
         "description": "",
         "produces": [
@@ -44,7 +44,16 @@
                 "description": {
                   "example": "any"
                 },
+                "category": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
                 "date": {
+                  "example": "any"
+                },
+                "stock": {
                   "example": "any"
                 }
               }
@@ -108,7 +117,16 @@
                 "description": {
                   "example": "any"
                 },
+                "category": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
                 "date": {
+                  "example": "any"
+                },
+                "stock": {
                   "example": "any"
                 }
               }
