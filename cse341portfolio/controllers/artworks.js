@@ -52,6 +52,7 @@ const createArtwork = async (req, res) => {
       return res.status(201).json({
         message: 'Artwork created successfully',
         artworkId: response.insertedId.toString()
+        
       });
     }
 

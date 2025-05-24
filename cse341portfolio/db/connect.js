@@ -12,7 +12,7 @@ const initDb = () => {
   }
   return MongoClient.connect(process.env.MONGODB_URI)
     .then((client) => {
-      _db = client.db();
+      _db = client.db('portfolio');
       console.log('MongoDB connected');
       return _db;
     });
