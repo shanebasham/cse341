@@ -1,0 +1,44 @@
+GET http://localhost:8080/artworks HTTP/1.1
+
+###
+GET http://localhost:8080/artworks/682ff2b4dff79eac233db960 HTTP/1.1
+
+###
+POST http://localhost:8080/artworks
+Content-Type: application/json
+
+{
+  "img": "link", "title": "Gav", "price": "$50", "description": "pen and ink", "category": "abstract", "size": "11x7", "date": "4/13/2017", "stock": "IN STOCK"
+}
+
+### 
+PUT http://localhost:8080/artworks/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+{
+ "img": "link", "title": "Gav", "price": "$50", "description": "pen and ink", "category": "abstract", "size": "11x7", "date": "4/13/2017", "stock": "IN STOCK"
+} 
+
+### 
+DELETE http://localhost:8080/artworks/683161426367782dfefb3f38 HTTP/1.1
+
+
+//                             PRODUCTION DEPLOY
+###
+GET https://cse341-tn18.onrender.com/artworks HTTP/1.1
+
+###
+GET https://cse341-tn18.onrender.com/artworks/68185b272874abaa8ba83221 HTTP/1.1
+
+### 
+Create https://cse341-instructor.herokuapp.com/artworks HTTP/1.1 content-type: application/json
+{
+ "img": "link", "title": "Gav", "price": "$50", "description": "pen and ink", "category": "abstract", "size": "11x7", "date": "4/13/2017", "stock": "IN STOCK"
+}
+
+### 
+PUT https://cse341-instructor.herokuapp.com/artworks/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+{
+ "img": "link", "title": "Gav", "price": "$50", "description": "pen and ink", "category": "abstract", "size": "11x7", "date": "4/13/2017", "stock": "IN STOCK"
+}
+
+### 
+DELETE https://cse341-instructor.herokuapp.com/artworks/6220e34083149913680f9a64 HTTP/1.1

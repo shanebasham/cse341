@@ -2,14 +2,14 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My Contacts API',
+    title: 'My Output API',
     description: 'Description'
   },
-  host: 'localhost:3000'
+  host: 'localhost:8080'
 };
 
-const outputFile = './swagger-output.json';
-const routes = ['./routes/index.js'];
+const outputFile = './swagger.json';
+const routes = ['./routes/artworks.js'];
 
 /* NOTE: If you are using the express Router, you must pass in the 'routes' only the 
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
@@ -18,6 +18,5 @@ root file where the route starts, such as index.js, app.js, routes.js, etc ... *
 
 // Run server after it gets generated
 swaggerAutogen(outputFile, routes, doc).then(() => {
-    require('./server.js'); // Your project's root file
+    require('./app.js'); 
   });
-  
